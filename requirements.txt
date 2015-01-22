@@ -1,0 +1,5 @@
+Flask
+Flask-OAuthlib
+bcrypt
+pyOpenSSL
+pymongo
