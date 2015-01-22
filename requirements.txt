@@ -1,5 +1,4 @@
-Flask
 Flask-OAuthlib
+Flask-PyMongo
 bcrypt
 pyOpenSSL
-pymongo
