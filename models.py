@@ -2,6 +2,9 @@
 """
     flask-oauth2.models
     ~~~~~~~~~~~~~~~~~~~
+
+    :copyright: (c) 2015 by Nicola Iarocci.
+    :license: BSD, see LICENSE for more details.
 """
 class BaseModel(object):
     def __init__(self, id=None):
@@ -47,7 +50,7 @@ class Client(BaseModel):
     RFC 6749 Section 2 (http://tools.ietf.org/html/rfc6749#section-2)
     describes clients:
 
-    +----------+
+     +----------+
      | Resource |
      |  Owner   |
      |          |

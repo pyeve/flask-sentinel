@@ -2,6 +2,9 @@
 """
     flask-oauth2.data
     ~~~~~~~~~~~~~~~~~
+
+    :copyright: (c) 2015 by Nicola Iarocci.
+    :license: BSD, see LICENSE for more details.
 """
 from datetime import datetime, timedelta
 

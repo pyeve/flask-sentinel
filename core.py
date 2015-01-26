@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-
 """
     flask-oauth2.core
     ~~~~~~~~~~~~~~~~~
 
-    This module holds Flask itself, flask extensions and oauth provider.
+    :copyright: (c) 2015 by Nicola Iarocci.
+    :license: BSD, see LICENSE for more details.
 """
 from collections import namedtuple
 from flask.ext.pymongo import PyMongo

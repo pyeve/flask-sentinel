@@ -1,4 +1,11 @@
 # -*- coding: utf-8 -*-
+"""
+    flask-oauth2.validator
+    ~~~~~~~~~~~~~~~~~~~~~~
+
+    :copyright: (c) 2015 by Nicola Iarocci.
+    :license: BSD, see LICENSE for more details.
+"""
 from flask_oauthlib.provider import OAuth2RequestValidator
 
 from data import Storage

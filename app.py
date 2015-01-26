@@ -2,6 +2,9 @@
 """
     flask-oauth2.app
     ~~~~~~~~~~~~~~~~
+
+    :copyright: (c) 2015 by Nicola Iarocci.
+    :license: BSD, see LICENSE for more details.
 """
 import logging
 from flask import Flask

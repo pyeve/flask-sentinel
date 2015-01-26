@@ -1,4 +1,11 @@
 # -*- coding: utf-8 -*-
+"""
+    flask-oauth2.views
+    ~~~~~~~~~~~~~~~~~~
+
+    :copyright: (c) 2015 by Nicola Iarocci.
+    :license: BSD, see LICENSE for more details.
+"""
 from flask import Blueprint, render_template, request
 
 from core import oauth
