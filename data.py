@@ -132,7 +132,6 @@ class Storage(object):
     @staticmethod
     def save_token(token, request, *args, **kwargs):
         client_id = request.client.client_id
-        import pdb; pdb.set_trace()  # XXX BREAKPOINT
         user_id = request.user.id
 
         # Make sure there is only one grant token for every (client, user)
