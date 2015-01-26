@@ -10,13 +10,17 @@ from datetime import datetime, timedelta
 
 import bcrypt
 import inspect
+from collections import namedtuple
 from werkzeug.security import gen_salt
 
-from core import mongo, id
+from core import mongo
 from models import Client, User, Token
 
-
 # TODO use SONManipulator instead of custom de/serializers perhaps?
+
+# map collection _id (primary key) to class property.
+idFieldsMap = namedtuple('idFields', 'cls, collection')
+id = idFieldsMap(cls='id', collection='_id')
 
 
 def _from_json(json, cls, as_list=False):
