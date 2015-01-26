@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="starter-template">
+                <h1>API Management</h1>
+                <p>Use this dashboard to authorize new users and clients to access the API.</p>
+                <div class="well">
+                    <h2>Users</h2>
+                    <p>There are {{ users|length }} authorized users.</p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>User ID</th>
+                                <th>Username</th>
+                                <th>Password Hash</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in users %}
+                            <tr>
+                                <td>{{ user.id }}</td>
+                                <td>{{ user.username }}</td>
+                                <td>{{ user.hashpw }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <h4>Add User</h4>
+                    <p>Create a new authorized API user.</p>
+                    <form method="post" action="/">
+                        <input type="text" name="username" placeholder="username">
+                        <input type="password" name="password" placeholder="password">
+                        <input type="submit" name='submit' value='Add User'>
+                    </form>
+                </div>
+                <div class="well">
+                    <h2>Client</h2>
+                    <p>There are {{ clients|length }} authorized clients.</p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Client ID</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for client in clients %}
+                            <tr>
+                                <td>{{ client.client_id }}</td>
+                                <td>{{ client.client_type }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <h4>Add Client</h4>
+                    <p>Generate a new client.</p>
+                    <form method="post" action="/">
+                        <input type="submit" name='submit' value='Add Client'>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </body>
+</html>
