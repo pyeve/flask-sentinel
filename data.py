@@ -98,12 +98,11 @@ class Storage(object):
         if user and password:
             encoded_pw = password.encode('utf-8')
             user_hash = user['hashpw'].encode('utf-8')
-            return mongo.db.users.find_one({
+            user = mongo.db.users.find_one({
                 'username': username,
                 'hashpw': bcrypt.hashpw(encoded_pw, user_hash)
             })
-        else:
-            return user
+        return _from_json(user, User)
 
     @staticmethod
     def get_token(access_token=None, refresh_token=None):
@@ -130,7 +129,8 @@ class Storage(object):
     @staticmethod
     def save_token(token, request, *args, **kwargs):
         client_id = request.client.client_id
-        user_id = request.user[id.collection]
+        import pdb; pdb.set_trace()  # XXX BREAKPOINT
+        user_id = request.user.id
 
         # Make sure there is only one grant token for every (client, user)
         mongo.db.tokens.remove({'client_id': client_id, 'user_id': user_id})
