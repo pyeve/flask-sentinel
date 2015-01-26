@@ -16,7 +16,7 @@ from models import Client, User, Token
 # TODO use SONManipulator instead of custom de/serializers perhaps?
 
 
-def _from_json(json, cls):
+def _from_json(json, cls, as_list=False):
     """ Serializes a JSON stream to a list of objects, or a single objects
         if only a document is contained in the string.
 
@@ -47,7 +47,7 @@ def _from_json(json, cls):
 
         objs.append(obj)
 
-    return objs
+    return objs if as_list else (objs.pop() if len(objs) else None)
 
 
 def _to_json(obj):
@@ -88,7 +88,7 @@ class Storage(object):
         """ Loads a client from mongodb and returns it as a Client or None.
         """
         json = mongo.db.clients.find_one({'client_id': client_id})
-        return _from_json(json, Client).pop()
+        return _from_json(json, Client)
 
     @staticmethod
     def get_user(username, password, *args, **kwargs):
@@ -118,11 +118,9 @@ class Storage(object):
             field, value = 'refresh_token', refresh_token
 
         json = mongo.db.tokens.find_one({field: value})
-        tokens = _from_json(json, Token)
-        if tokens is None:
+        token = _from_json(json, Token)
+        if token is None:
             return None
-
-        token = tokens.pop()
 
         json = mongo.db.users.find_one({id.collection: token.user_id})
         token.user = _from_json(json, User)
@@ -171,9 +169,9 @@ class Storage(object):
     @staticmethod
     def all_users():
         json = list(mongo.db.users.find())
-        return _from_json(json, User)
+        return _from_json(json, User, as_list=True)
 
     @staticmethod
     def all_clients():
         json = list(mongo.db.clients.find())
-        return _from_json(json, Client)
+        return _from_json(json, Client, as_list=True)
