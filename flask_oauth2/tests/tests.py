@@ -1,4 +1,4 @@
-from util import TestBase
+from base import TestBase
 from flask_oauth2.core import mongo
 from flask_oauth2.data import Storage
 from flask_oauth2.models import Client, User
