@@ -170,6 +170,7 @@ class Storage(object):
         client.client_id = gen_salt(40)
         client.client_type = "public"
         mongo.db.clients.insert(_to_json(client))
+        return client
 
     @staticmethod
     def save_user(username, password):
@@ -177,6 +178,7 @@ class Storage(object):
         hash = bcrypt.hashpw(password.encode('utf-8'), salt)
         user = User(username=username, hashpw=hash)
         mongo.db.users.insert(_to_json(user))
+        return user
 
     @staticmethod
     def all_users():

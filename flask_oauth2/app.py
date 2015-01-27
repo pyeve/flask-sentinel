@@ -14,7 +14,7 @@ from validator import MyRequestValidator
 from views import authapi
 
 
-def create_app(settings_override=None):
+def create_app(settings='settings', settings_override=None):
     """ Method for creating and initializing application.
 
         :param settings_override: Dictionary of settings to override.
@@ -22,7 +22,7 @@ def create_app(settings_override=None):
     app = Flask(__name__)
 
     # Update configuration.
-    app.config.from_object('settings')
+    app.config.from_object(settings)
     app.config.from_pyfile('settings.cfg', silent=True)
     app.config.from_object(settings_override)
 
