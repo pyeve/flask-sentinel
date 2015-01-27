@@ -13,7 +13,9 @@ import inspect
 from collections import namedtuple
 from werkzeug.security import gen_salt
 
-from core import mongo
+import redis
+
+from core import mongo, redis
 from models import Client, User, Token
 
 # TODO use SONManipulator instead of custom de/serializers perhaps?
@@ -152,6 +154,10 @@ class Storage(object):
             refresh_token=token['refresh_token'],
             expires=expires,
         )
+
+        # Add the access token to the Redis cache and set it to
+        # expire at the appropriate time.
+        redis.setex(token.access_token, expires_in, user_id)
 
         spec = {'user_id': user_id, 'client_id': client_id}
 

@@ -1,4 +1,4 @@
-# Flask-Oauth2
+# Flask-OAuth2
 Oauth2 authentication server for the `Resource Owner Password Credentials
 Grant` described in [RFC 6749 (Section 1.3.3)][1].
 

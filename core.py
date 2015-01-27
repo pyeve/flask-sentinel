@@ -8,6 +8,9 @@
 """
 from flask.ext.pymongo import PyMongo
 from flask_oauthlib.provider import OAuth2Provider
+from redis import StrictRedis
+from settings import REDIS_URL
 
 mongo = PyMongo()
 oauth = OAuth2Provider()
+redis = StrictRedis.from_url(REDIS_URL)
