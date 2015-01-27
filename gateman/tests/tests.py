@@ -7,7 +7,7 @@
     :license: BSD, see LICENSE for more details.
 """
 from base import TestBase
-from gateman.core import mongo
+from gateman.core import mongo, redis
 from gateman.data import Storage
 from gateman.models import Client, User
 
@@ -50,6 +50,15 @@ class TestTokenEndpoint(TestBase):
         self.assertTrue('scope' in son)
         self.assertEqual('Bearer', son['token_type'])
         self.assertEqual('', son['scope'])
+
+        # Test that token has been stored in redis
+        token_key = son['access_token']
+        token = redis.get(token_key)
+        # Test that key value matches user id.
+        self.assertEqual(token, str(self.user.id))
+        # Test that TTL has been set to custom value.
+        ttl = redis.ttl(token_key)
+        self.assertEqual(ttl, 999)
 
 
 class TestAuthEndpoint(TestBase):
