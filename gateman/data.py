@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    flask-oauth2.data
-    ~~~~~~~~~~~~~~~~~
+    gateman.data
+    ~~~~~~~~~
 
     :copyright: (c) 2015 by Nicola Iarocci.
     :license: BSD, see LICENSE for more details.
@@ -13,10 +13,9 @@ import inspect
 from collections import namedtuple
 from werkzeug.security import gen_salt
 
-import redis
-
 from core import mongo, redis
 from models import Client, User, Token
+
 
 # TODO use SONManipulator instead of custom de/serializers perhaps?
 

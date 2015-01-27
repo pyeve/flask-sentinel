@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    flask-oauth2.app
-    ~~~~~~~~~~~~~~~~
+    gateman.app
+    ~~~~~~~~~~~
 
     :copyright: (c) 2015 by Nicola Iarocci.
     :license: BSD, see LICENSE for more details.
@@ -11,7 +11,7 @@ from flask import Flask
 
 from core import oauth, mongo
 from validator import MyRequestValidator
-from views import authapi
+from views import gateman
 
 
 def create_app(settings='settings', settings_override=None):
@@ -32,7 +32,7 @@ def create_app(settings='settings', settings_override=None):
     oauth._validator = MyRequestValidator()
 
     # Register views on the application.
-    app.register_blueprint(authapi)
+    app.register_blueprint(gateman)
 
     return app
 
@@ -40,7 +40,7 @@ def create_app(settings='settings', settings_override=None):
 if __name__ == '__main__':
 
     # Enable Flask-OAuthlib logging for this application.
-    logger = logging.getLogger('flask_oauthlib')
+    logger = logging.getLogger('gateman')
     logger.addHandler(logging.StreamHandler())
     logger.setLevel(logging.DEBUG)
 

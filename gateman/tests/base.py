@@ -1,15 +1,15 @@
 import simplejson as json
 import unittest
 
-from flask_oauth2 import app
-from flask_oauth2.core import mongo
-from flask_oauth2.data import Storage
+from gateman import app
+from gateman.core import mongo
+from gateman.data import Storage
 
 
 class TestBase(unittest.TestCase):
 
     def setUp(self):
-        self.app = app.create_app('flask_oauth2.tests.test_settings')
+        self.app = app.create_app('gateman.tests.test_settings')
         self.context = self.app.test_request_context('/')
         self.context.push()
         self.test_client = self.app.test_client()

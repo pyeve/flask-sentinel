@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    flask-oauth2.models
-    ~~~~~~~~~~~~~~~~~~~
+    gateman.models
+    ~~~~~~~~~~~
 
     :copyright: (c) 2015 by Nicola Iarocci.
     :license: BSD, see LICENSE for more details.

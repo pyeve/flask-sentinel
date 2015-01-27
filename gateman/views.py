@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    flask-oauth2.views
-    ~~~~~~~~~~~~~~~~~~
+    gateman.views
+    ~~~~~~~~~~
 
     :copyright: (c) 2015 by Nicola Iarocci.
     :license: BSD, see LICENSE for more details.
@@ -11,10 +11,10 @@ from flask import Blueprint, render_template, request
 from core import oauth
 from data import Storage
 
-authapi = Blueprint('authapi', __name__)
+gateman = Blueprint('gateman', __name__)
 
 
-@authapi.route('/oauth/token', methods=['POST'])
+@gateman.route('/oauth/token', methods=['POST'])
 @oauth.token_handler
 def access_token(*args, **kwargs):
     """ This endpoint is for exchanging/refreshing an access token.
@@ -28,14 +28,14 @@ def access_token(*args, **kwargs):
     return None
 
 
-@authapi.route('/oauth/revoke', methods=['POST'])
+@gateman.route('/oauth/revoke', methods=['POST'])
 @oauth.revoke_handler
 def revoke_token():
     """ This endpoint allows a user to revoke their access token."""
     pass
 
 
-@authapi.route('/', methods=['GET', 'POST'])
+@gateman.route('/', methods=['GET', 'POST'])
 def management():
     """ This endpoint is for vieweing and adding users and clients. """
     if request.method == 'POST' and request.form['submit'] == 'Add User':
@@ -46,7 +46,7 @@ def management():
                            clients=Storage.all_clients())
 
 
-@authapi.route('/endpoint')
+@gateman.route('/endpoint')
 @oauth.require_oauth()
 def restricted_access():
     """ This is an example endpoint we are trying to protect. """
