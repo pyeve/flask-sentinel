@@ -176,7 +176,7 @@ class Storage(object):
         salt = bcrypt.gensalt()
         hash = bcrypt.hashpw(password.encode('utf-8'), salt)
         user = User(username=username, hashpw=hash)
-        mongo.db.users.insert(_to_json(user))
+        user.id = mongo.db.users.insert(_to_json(user))
         return user
 
     @staticmethod
