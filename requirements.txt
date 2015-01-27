@@ -2,3 +2,4 @@ Flask-OAuthlib
 Flask-PyMongo
 bcrypt
 pyOpenSSL
+redis
