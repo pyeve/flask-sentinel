@@ -9,7 +9,7 @@ from gateman.data import Storage
 class TestBase(unittest.TestCase):
 
     def setUp(self):
-        self.app = app.create_app('gateman.tests.test_settings')
+        self.app = app.create_app(self.settings())
         self.context = self.app.test_request_context('/')
         self.context.push()
         self.test_client = self.app.test_client()
@@ -32,6 +32,13 @@ class TestBase(unittest.TestCase):
     def tearDown(self):
         mongo.cx.drop_database(self.app.config['MONGO_DBNAME'])
         self.context.pop()
+
+    def settings(self):
+        return {
+            'MONGO_DBNAME': 'test_auth',
+            'REDIS_URL': 'redis://localhost:6379/0',
+            'OAUTH2_PROVIDER_TOKEN_EXPIRES_IN': 999
+        }
 
     def get_token(self):
         query = self.url % (self.clientid, self.username, self.pw)

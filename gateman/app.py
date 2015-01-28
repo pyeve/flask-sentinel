@@ -14,17 +14,14 @@ from validator import MyRequestValidator
 from views import gateman
 
 
-def create_app(settings='settings', settings_override=None):
+def create_app(settings_override=None):
     """ Method for creating and initializing application.
 
         :param settings_override: Dictionary of settings to override.
     """
     app = Flask(__name__)
 
-    # Update configuration.
-    app.config.from_object(settings)
-    app.config.from_pyfile('settings.cfg', silent=True)
-    app.config.from_object(settings_override)
+    update_config(app, settings_override)
 
     # Initialize extensions on the application.
     mongo.init_app(app)
@@ -35,6 +32,20 @@ def create_app(settings='settings', settings_override=None):
     app.register_blueprint(gateman)
 
     return app
+
+
+def update_config(app, settings_override):
+    try:
+        app.config.from_object('settings')
+    except ImportError:
+        pass
+
+    app.config.from_pyfile('settings.cfg', silent=True)
+
+    if isinstance(settings_override, dict):
+        app.config.update(settings_override)
+    else:
+        app.config.from_object(settings_override)
 
 
 if __name__ == '__main__':

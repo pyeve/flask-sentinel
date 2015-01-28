@@ -1,4 +1,0 @@
-OAUTH2_PROVIDER_TOKEN_EXPIRES_IN = 999
-
-MONGO_DBNAME = 'test_auth'
-REDIS_URL = 'redis://localhost:6379/0'
