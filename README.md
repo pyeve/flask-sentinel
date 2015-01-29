@@ -71,11 +71,6 @@ development server running under SSL/TLS.*
 Bcrypt and a randomly generated salt are used to hash each user password before
 it is added to the database. You should never store passwords in plain text! 
 
-## Experiment
-This is WIP and you should fully expect me to force-push from time to time. To
-be honest I still consider this an experiment and I'm using github as a backup
-tool. 
-
 ## License
 Flask-OAuth2 is a [Nicola Iarocci][5] and [Gestionali Amica][6] open source project
 distributed under the [BSD license][7].
