@@ -5,10 +5,20 @@ described in [RFC 6749 (Section 1.3.3)][1].
 Powered by Flask, Redis and MongoDB.
 
 ## Deployment
+Clone this repository and install all dependencies:
+
+```bash
+$ pip install -r requirements.txt
+```
+
+Once v0.0.1 is released (which is not the case yet) you will be able to install
+as usual:
+
 ```bash
 $ pip install flask-oauth2
 ```
 
+## Usage
 Once all the extension and all its dependencies are installed, you can use the
 extension like any other Flask extension:
 
