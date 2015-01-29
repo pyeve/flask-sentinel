@@ -9,7 +9,7 @@
 from flask import Blueprint
 
 import views
-from core import oauth, mongo
+from core import oauth, mongo, redis
 from utils import Config
 from validator import MyRequestValidator
 
@@ -22,6 +22,8 @@ class ResourceOwnerPasswordCredentials(object):
 
     def init_app(self, app):
         config = Config(app)
+        redis.from_url(config.value('REDIS_URL'))
+        self.app.config['DEBUG'] = True
         self.register_blueprint(app)
 
         if config.value('TOKEN_URL') is not False:
