@@ -38,7 +38,8 @@ class TestBase(unittest.TestCase):
         self.username = self.user.username
 
         self.auth_endpoint = '/endpoint'
-        self.token_endpoint = '/oauth/token'
+        self.token_endpoint = '/testauth/testtoken'
+        self.man_endpoint = '/testauth/testmngmt'
         self.url = '%s?%s' % (
             self.token_endpoint,
             'client_id=%s&grant_type=password&username=%s&password=%s'
@@ -52,7 +53,10 @@ class TestBase(unittest.TestCase):
         return {
             'MONGO_DBNAME': 'test_auth',
             'REDIS_URL': 'redis://localhost:6379/0',
-            'OAUTH2_PROVIDER_TOKEN_EXPIRES_IN': 999
+            'OAUTH2_PROVIDER_TOKEN_EXPIRES_IN': 999,
+            'OAUTH2_PROVIDER_TOKEN_URL': '/testtoken',
+            'OAUTH2_PROVIDER_MANAGEMENT_URL': '/testmngmt',
+            'OAUTH2_PROVIDER_ROUTE_PREFIX': '/testauth'
         }
 
     def get_token(self):

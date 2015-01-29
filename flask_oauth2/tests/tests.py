@@ -83,6 +83,12 @@ class TestAuthEndpoint(TestBase):
         self.assert200(r.status_code)
 
 
+class TestManagementEndpoint(TestBase):
+    def test_man_endpoint(self):
+        r = self.test_client.get(self.man_endpoint)
+        self.assert200(r.status_code)
+
+
 class TestStorage(TestBase):
     def test_get_client(self):
         client = Storage.get_client('notreally')
