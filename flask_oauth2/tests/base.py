@@ -1,15 +1,30 @@
+# -*- coding: utf-8 -*-
+"""
+    flask_oauth2.app
+    ~~~~~~~~~~~~~~~~
+
+    :copyright: (c) 2015 by Nicola Iarocci.
+    :license: BSD, see LICENSE for more details.
+"""
 import simplejson as json
 import unittest
 
-from gateman import app
-from gateman.core import mongo
-from gateman.data import Storage
+from flask import Flask
+from flask_oauth2 import ResourceOwnerPasswordCredentials, oauth
+from flask_oauth2.core import mongo
+from flask_oauth2.data import Storage
 
 
 class TestBase(unittest.TestCase):
 
     def setUp(self):
-        self.app = app.create_app(self.settings())
+        self.app = Flask(__name__)
+
+        self.app.add_url_rule('/endpoint', view_func=restricted_access)
+        self.app.config.update(self.settings())
+
+        ResourceOwnerPasswordCredentials(self.app)
+
         self.context = self.app.test_request_context('/')
         self.context.push()
         self.test_client = self.app.test_client()
@@ -57,3 +72,10 @@ class TestBase(unittest.TestCase):
 
     def assert200(self, status_code):
         self.assertEqual(200, status_code)
+
+
+@oauth.require_oauth()
+def restricted_access():
+    """ This is an example endpoint we are trying to protect. """
+    return "Congratulations, you made it through and accessed the protected " \
+        "resource!"

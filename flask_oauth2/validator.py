@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    gate.validator
-    ~~~~~~~~~~~~~~
+    flask-oauth2.validator
+    ~~~~~~~~~~~~~~~~~~~~~~
 
     :copyright: (c) 2015 by Nicola Iarocci.
     :license: BSD, see LICENSE for more details.

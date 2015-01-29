@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 """
-    gateman.data
-    ~~~~~~~~~
+    flask-oauth2.data
+    ~~~~~~~~~~~~~~~~~
 
     :copyright: (c) 2015 by Nicola Iarocci.
     :license: BSD, see LICENSE for more details.
 """
+import inspect
+from collections import namedtuple
 from datetime import datetime, timedelta
 
 import bcrypt
-import inspect
-from collections import namedtuple
 from werkzeug.security import gen_salt
 
 from core import mongo, redis

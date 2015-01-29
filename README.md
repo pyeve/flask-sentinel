@@ -1,6 +1,6 @@
-# Gateman
+# Flask-OAuth2
 OAuth2 Provider for the Resource Owner Password Credentials
-Grant as described in [RFC 6749 (Section 1.3.3)][1].
+Grant scheme, as described in [RFC 6749 (Section 1.3.3)][1].
 
 Powered by Flask, Redis and MongoDB.
 
@@ -10,7 +10,7 @@ be honest I still consider this an experiment and I'm using github as a backup
 tool. 
 
 ## License
-Gateman is a [Nicola Iarocci][5] and [Gestionali Amica][6] open source project
+Flask-OAuth2 is a [Nicola Iarocci][5] and [Gestionali Amica][6] open source project
 distributed under the [BSD license][7].
 
 ## Acknowledgement
@@ -22,5 +22,5 @@ This work is based on the [yoloAPI][2] project by [Josh Brandoff][3] and [Jonas 
 [4]: https://github.com/brunsgaard
 [5]: http://nicolaiarocci.com
 [6]: http://gestionaleamica.com
-[7]: https://github.com/nicolaiarocci/gateman/blob/master/LICENSE
+[7]: https://github.com/nicolaiarocci/flask-oauth2/blob/master/LICENSE
 

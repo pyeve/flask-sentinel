@@ -14,17 +14,17 @@ install_requires = [
 ]
 
 setup(
-    name='Gateman',
+    name='Flask-OAuth2',
     version='0.0.1',
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
     author='Nicola Iarocci',
-    author_email='gateman@nicolaiarocci.com',
-    url='https://github.com/nicolaiarocci/gateman',
+    author_email='flask-oauth2@nicolaiarocci.com',
+    url='https://github.com/nicolaiarocci/flask-oauth2',
     license='BSD',
     platforms=["any"],
     packages=find_packages(),
-    test_suite="gateman.tests",
+    test_suite="flask-oauth2.tests",
     install_requires=install_requires,
     tests_require=['redis'],
     classifiers=[
