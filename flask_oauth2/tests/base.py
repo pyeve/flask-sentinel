@@ -39,7 +39,7 @@ class TestBase(unittest.TestCase):
 
         self.auth_endpoint = '/endpoint'
         self.token_endpoint = '/testauth/testtoken'
-        self.man_endpoint = '/testauth/testmngmt'
+        self.man_endpoint = '/testauth/testman'
         self.url = '%s?%s' % (
             self.token_endpoint,
             'client_id=%s&grant_type=password&username=%s&password=%s'
@@ -55,7 +55,7 @@ class TestBase(unittest.TestCase):
             'REDIS_URL': 'redis://localhost:6379/0',
             'OAUTH2_PROVIDER_TOKEN_EXPIRES_IN': 999,
             'OAUTH2_PROVIDER_TOKEN_URL': '/testtoken',
-            'OAUTH2_PROVIDER_MANAGEMENT_URL': '/testmngmt',
+            'OAUTH2_PROVIDER_MANAGEMENT_URL': '/testman',
             'OAUTH2_PROVIDER_ROUTE_PREFIX': '/testauth'
         }
 
