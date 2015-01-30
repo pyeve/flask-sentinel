@@ -19,8 +19,8 @@ $ pip install flask-oauth2
 ```
 
 ## Usage
-Once all the extension and all its dependencies are installed, you can use the
-extension like any other Flask extension:
+Once the extension and its dependencies are installed, you can use it like any
+other Flask extension:
 
 ```python
 
@@ -42,6 +42,9 @@ def restricted_access():
 if __name__ == '__main__':
     app.run(ssl_context='adhoc')
 ```
+
+Ok the class name kind of sucks. Will try to come up with something more
+concise ;-)
 
 ## User and Client Management
 You can create users and clients through the default management interface
