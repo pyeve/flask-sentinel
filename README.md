@@ -68,6 +68,33 @@ Congraulations, you made it through and accessed the protected resource!
 ```
 
 ## Configuration
+Configuration works like any other [Flask configuration][flask-config]. Here are
+the built-in defaults:
+
+- `OAUTH2_PROVIDER_ROUTE_PREFIX`: Default prefix for OAuth endpoints. Defaults to `/oauth`. Prepends both token and management urls.
+- `OAUTH2_PROVIDER_TOKEN_URL`: Url for token creation endpoint. Defaults to `/token`, so the complete url is `/oauth/token`. 
+- `OAUTH2_PROVIDER_MANAGEMENT_URL`: Url for management endpoint. Defaults to `/management`, so the complete url is `/oauth/management`. 
+- `OAUTH2_PROVIDER_TOKEN_EXPIRES_IN`: Default Bearer token expires time, default is `3600`.
+- `OAUTH2_PROVIDER_REDIS_URL`: Url for the redis server. Defaults to `redis://localhost:6379/0`. 
+- `OAUTH2_PROVIDER_ERROR_URI`: The error page when there is an error, default value is `/oauth/errors`. 
+- `OAUTH2_PROVIDER_ERROR_ENDPOINT`: You can also configure the error page uri with an endpoint name. 
+- `MONGO_DBNAME`: Mongo database name. Defaults to `oauth`. 
+
+You are probably going to use `flask-oauth2` as either a stand-alone
+application, or as an extension to an already existing Flask application, such
+as an [Eve][eve] instance. If the latter, and if the application you are
+extending uses MongoDB (and PyMongo) itself, then the oauth collections will
+end up being stored in the same database used by the main application, since
+both `flask-oauth2` and your app will share the `MONGO_DBNAME` setting. Other
+typical PyMongo settings, such as `MONGO_HOST`, `MONGO_PORT`, `MONGO_URI` etc.
+are also supported.
+
+When a token is created, it is added to both the database and the Redis cache.
+In Redis, `key` is the access token itself while `value` is the id of the user
+who requested the token. This allows for fast token
+authentication/verification, bypassing the database lookup, if/when needed.
+This tecnique can be used, for example, when integrating `flask-oauth` with
+[Eve][eve] powered REST API instances (more on this later.)
 
 ## Security
 ### SSL/TLS
@@ -100,3 +127,5 @@ This work is based on the [yoloAPI][2] project by [Josh Brandoff][3] and [Jonas 
 [7]: https://github.com/nicolaiarocci/flask-oauth2/blob/master/LICENSE
 [8]: https://localhost:5000/oauth/management
 [console]: static/console.png
+[eve]: http://python-eve.org
+[flask-config]: http://flask.pocoo.org/docs/0.10/config/
