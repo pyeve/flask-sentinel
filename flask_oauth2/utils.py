@@ -13,13 +13,7 @@ class Config(object):
         self.prefix = 'OAUTH2_PROVIDER'
         self.app = app
 
-        # TODO we currently use the eventual database found in app.config,
-        # which means that we're going to use the same database as the
-        # main app. This might now be the desireded behaviour for some.
-        # Consider the option of using a different database for oauth (which
-        # might eventually coincide with main app's.)
-        app.config.setdefault('MONGO_DBNAME', 'oauth')
-
+        app.config.setdefault(self._key('MONGO_DBNAME'), 'oauth')
         app.config.setdefault(self._key('ROUTE_PREFIX'), '/oauth')
         app.config.setdefault(self._key('TOKEN_URL'), '/token')
         app.config.setdefault(self._key('MANAGEMENT_URL'), '/management')

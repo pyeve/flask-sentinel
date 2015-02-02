@@ -40,7 +40,7 @@ class ResourceOwnerPasswordCredentials(object):
                 methods=['POST', 'GET']
             )
 
-        mongo.init_app(app)
+        mongo.init_app(app, config_prefix='OAUTH2_PROVIDER_MONGO')
         oauth.init_app(app)
         oauth._validator = MyRequestValidator()
 
