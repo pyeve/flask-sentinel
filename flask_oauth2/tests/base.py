@@ -19,6 +19,7 @@ class TestBase(unittest.TestCase):
 
     def setUp(self):
         self.app = Flask(__name__)
+        self.dbkey = 'OAUTH2_PROVIDER_MONGO_DBNAME'
 
         self.app.add_url_rule('/endpoint', view_func=restricted_access)
         self.app.config.update(self.settings())
@@ -29,7 +30,7 @@ class TestBase(unittest.TestCase):
         self.context.push()
         self.test_client = self.app.test_client()
 
-        mongo.cx.drop_database(self.app.config['MONGO_DBNAME'])
+        mongo.cx.drop_database(self.app.config[self.dbkey])
 
         self.pw = 'pw'
         self.clientapp = Storage.generate_client()
@@ -46,12 +47,12 @@ class TestBase(unittest.TestCase):
         )
 
     def tearDown(self):
-        mongo.cx.drop_database(self.app.config['MONGO_DBNAME'])
+        mongo.cx.drop_database(self.app.config[self.dbkey])
         self.context.pop()
 
     def settings(self):
         return {
-            'MONGO_DBNAME': 'test_auth',
+            self.dbkey: 'test_auth',
             'REDIS_URL': 'redis://localhost:6379/0',
             'OAUTH2_PROVIDER_TOKEN_EXPIRES_IN': 999,
             'OAUTH2_PROVIDER_TOKEN_URL': '/testtoken',
