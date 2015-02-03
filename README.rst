@@ -48,7 +48,8 @@ User and Client Management
 You can create users and clients through the default management interface
 available at ``https://localhost:5000/oauth/management``.
 
-.. image:: static/console.png
+.. image:: https://raw.githubusercontent.com/nicolaiarocci/flask-sentinel/master/static/console.png
+   :scale: 25 %
 
 Testing
 -------
@@ -74,8 +75,6 @@ Configuration
 -------------
 Configuration works like any other `Flask configuration`_. Here are
 the built-in defaults:
-
-.. tabularcolumns:: |p{6.5cm}|p{8.5cm}|
 
 ======================================= ======================================
 ``SENTINEL_PROVIDER_ROUTE_PREFIX``      Default prefix for OAuth endpoints. 
@@ -118,7 +117,7 @@ used, for example, when integrating ``flask-sentinel`` with `Eve`_ powered REST
 API instances.
 
 Using Flask-Sentinel with Eve
-----------------------------
+-----------------------------
 See the `Eve-OAuth2`_ example project.
 
 Security
