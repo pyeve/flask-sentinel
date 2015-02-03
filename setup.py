@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
 from setuptools import setup, find_packages
-DESCRIPTION = ('OAuth2 Provider powered by Flask, Redis and MongoDB.')
-with open('README.md') as f:
+DESCRIPTION = ('OAuth2 Provider for Flask applications.')
+with open('README.rst') as f:
     LONG_DESCRIPTION = f.read()
 
 install_requires = [
@@ -19,7 +19,7 @@ setup(
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
     author='Nicola Iarocci',
-    author_email='flask-oauth2@nicolaiarocci.com',
+    author_email='nicola@nicolaiarocci.com',
     url='https://github.com/nicolaiarocci/flask-oauth2',
     license='BSD',
     platforms=["any"],
