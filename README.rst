@@ -28,7 +28,7 @@ other Flask extension:
 .. code-block:: python
 
     from flask import Flask
-    from flask_oauth2 import ResourceOwnerPasswordCredentials, oauth
+    from flask.ext.oauth2 import ResourceOwnerPasswordCredentials, oauth
 
 
     app = Flask(__name__)
