@@ -82,8 +82,10 @@ When a token is created it is added to both the database and the Redis cache.
 In Redis, `key` is the access token itself while `value` is the id of the user
 who requested the token. This allows for fast token authentication/verification
 bypassing the database lookup. This tecnique can be used, for example, when
-integrating `flask-oauth` with [Eve][eve] powered REST API instances (more on
-this later.)
+integrating `flask-oauth` with [Eve][eve] powered REST API instances.
+
+## Using Flask-OAuth2 with Eve
+See the [Eve-OAuth2][9] example project.
 
 ## Security
 ### SSL/TLS
@@ -115,6 +117,7 @@ This work is based on the [yoloAPI][2] project by [Josh Brandoff][3] and [Jonas 
 [6]: http://gestionaleamica.com
 [7]: https://github.com/nicolaiarocci/flask-oauth2/blob/master/LICENSE
 [8]: https://localhost:5000/oauth/management
+[9]: https://github.com/nicolaiarocci/eve-oauth2
 [console]: static/console.png
 [eve]: http://python-eve.org
 [flask-config]: http://flask.pocoo.org/docs/0.10/config/
