@@ -14,17 +14,17 @@ install_requires = [
 ]
 
 setup(
-    name='Flask-OAuth2',
+    name='Flask-Sentinel',
     version='0.0.1',
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
     author='Nicola Iarocci',
     author_email='nicola@nicolaiarocci.com',
-    url='https://github.com/nicolaiarocci/flask-oauth2',
+    url='https://github.com/nicolaiarocci/flask-sentinel',
     license='BSD',
     platforms=["any"],
     packages=find_packages(),
-    test_suite="flask-oauth2.tests",
+    test_suite="flask-sentinel.tests",
     install_requires=install_requires,
     tests_require=['redis'],
     classifiers=[

@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 """
-    flask-oauth2.tests.tests
-    ~~~~~~~~~~~~~~~~~~~~~~~~
+    flask-sentinel.tests.tests
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     :copyright: (c) 2015 by Nicola Iarocci.
     :license: BSD, see LICENSE for more details.
 """
 from base import TestBase
-from flask_oauth2.core import mongo, redis
-from flask_oauth2.data import Storage
-from flask_oauth2.models import Client, User
+from flask_sentinel.core import mongo, redis
+from flask_sentinel.data import Storage
+from flask_sentinel.models import Client, User
 
 
 class TestTokenEndpoint(TestBase):

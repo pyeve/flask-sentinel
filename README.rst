@@ -1,5 +1,5 @@
-Flask-OAuth2
-============
+Flask-Sentinel
+==============
 OAuth2 Provider currently supporting the Resource Owner Password Credentials
 Grant as described in Section 1.3.3 of `RFC 6749`_.
 
@@ -18,7 +18,7 @@ as usual:
 
 .. code-block:: console
 
-    $ pip install flask-oauth2
+    $ pip install flask-sentinel
 
 Usage
 -----
@@ -28,7 +28,7 @@ other Flask extension:
 .. code-block:: python
 
     from flask import Flask
-    from flask.ext.oauth2 import ResourceOwnerPasswordCredentials, oauth
+    from flask.ext.sentinel import ResourceOwnerPasswordCredentials, oauth
 
 
     app = Flask(__name__)
@@ -78,47 +78,47 @@ the built-in defaults:
 .. tabularcolumns:: |p{6.5cm}|p{8.5cm}|
 
 ======================================= ======================================
-``OAUTH2_PROVIDER_ROUTE_PREFIX``        Default prefix for OAuth endpoints. 
+``SENTINEL_PROVIDER_ROUTE_PREFIX``      Default prefix for OAuth endpoints. 
                                         Defaults to ``/oauth``. Prepends both
                                         token and management urls.
 
-``OAUTH2_PROVIDER_TOKEN_URL``           Url for token creation endpoint. 
+``SENTINEL_TOKEN_URL``                  Url for token creation endpoint. 
                                         Defaults to ``/token``, so the 
                                         complete url is ``/oauth/token``. 
 
-``OAUTH2_PROVIDER_MANAGEMENT_URL``      Url for management endpoint. Defaults 
+``SENTINEL_MANAGEMENT_URL``             Url for management endpoint. Defaults 
                                         to ``/management``, so the complete 
                                         url is ``/oauth/management``. 
 
-``OAUTH2_PROVIDER_TOKEN_EXPIRES_IN``    Default Bearer token expires time, 
+``SENTINEL_TOKEN_EXPIRES_IN``           Default Bearer token expires time, 
                                         default is ``3600``.
 
-``OAUTH2_PROVIDER_REDIS_URL``           Url for the redis server. Defaults to 
+``SENTINEL_REDIS_URL``                  Url for the redis server. Defaults to 
                                         ``redis://localhost:6379/0``. 
 
-``OAUTH2_PROVIDER_ERROR_URI``           The error page when there is an error, 
+``SENTINEL_ERROR_URI``                  The error page when there is an error, 
                                         default value is ``/oauth/errors``. 
 
-``OAUTH2_PROVIDER_ERROR_ENDPOINT``      You can also configure the error page 
+``SENTINEL_ERROR_ENDPOINT``             You can also configure the error page 
                                         uri with an endpoint name. 
 
-``OAUTH2_PROVIDER_MONGO_DBNAME``        Mongo database name. Defaults to 
+``SENTINEL_MONGO_DBNAME``               Mongo database name. Defaults to 
                                         ``oauth``. 
 ======================================= ======================================
 
 Other standard PyMongo settings such as ``MONGO_HOST``, ``MONGO_PORT``,
-``MONGO_URI`` are also supported; just prefix them with ``OAUTH2_PROVIDER_`` as
+``MONGO_URI`` are also supported; just prefix them with ``SENTINEL_`` as
 seen above.
 
 When a token is created it is added to both the database and the Redis cache.
 In Redis, ``key`` is the access token itself while ``value`` is the id of the
 user who requested the token. This allows for fast token
 authentication/verification bypassing the database lookup. This tecnique can be
-used, for example, when integrating ``flask-oauth`` with `Eve`_ powered REST
+used, for example, when integrating ``flask-sentinel`` with `Eve`_ powered REST
 API instances.
 
-Using Flask-OAuth2 with Eve
----------------------------
+Using Flask-Sentinel with Eve
+----------------------------
 See the `Eve-OAuth2`_ example project.
 
 Security
@@ -141,12 +141,13 @@ it is added to the database. You should never store passwords in plain text!
 
 License
 -------
-Flask-OAuth2 is a `Nicola Iarocci`_ and `Gestionali Amica`_ open source project
-distributed under the `BSD license`_.
+Flask-Sentinel is a `Nicola Iarocci`_ and `Gestionali Amica`_ open source
+project distributed under the `BSD license`_.
 
 Acknowledgement
 ---------------
-This work is based on the `yoloAPI`_ project by `Josh Brandoff`_ and `Jonas Brunsgaard`_.
+This work is based on the `yoloAPI`_ project by `Josh Brandoff`_ and `Jonas
+Brunsgaard`_.
 
 .. _`RFC 6749`: http://tools.ietf.org/html/rfc6749#section-1.3.3
 .. _`yoloAPI`: https://github.com/brunsgaard/yoloAPI
@@ -154,7 +155,7 @@ This work is based on the `yoloAPI`_ project by `Josh Brandoff`_ and `Jonas Brun
 .. _`Jonas Brunsgaard`: https://github.com/brunsgaard
 .. _`Nicola Iarocci`: http://nicolaiarocci.com
 .. _`Gestionali Amica`: http://gestionaleamica.com
-.. _`BSD license`: https://github.com/nicolaiarocci/flask-oauth2/blob/master/LICENSE
+.. _`BSD license`: https://github.com/nicolaiarocci/flask-sentinel/blob/master/LICENSE
 .. _`Eve-OAuth2`: https://github.com/nicolaiarocci/eve-oauth2
 .. _`Eve`: http://python-eve.org
 .. _`Flask configuration`: http://flask.pocoo.org/docs/0.10/config/

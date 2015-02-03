@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    flask_oauth2.app
-    ~~~~~~~~~~~~~~~~
+    flask_sentinel.tests
+    ~~~~~~~~~~~~~~~~~~~~
 
     :copyright: (c) 2015 by Nicola Iarocci.
     :license: BSD, see LICENSE for more details.
@@ -10,16 +10,16 @@ import simplejson as json
 import unittest
 
 from flask import Flask
-from flask_oauth2 import ResourceOwnerPasswordCredentials, oauth
-from flask_oauth2.core import mongo
-from flask_oauth2.data import Storage
+from flask_sentinel import ResourceOwnerPasswordCredentials, oauth
+from flask_sentinel.core import mongo
+from flask_sentinel.data import Storage
 
 
 class TestBase(unittest.TestCase):
 
     def setUp(self):
         self.app = Flask(__name__)
-        self.dbkey = 'OAUTH2_PROVIDER_MONGO_DBNAME'
+        self.dbkey = 'SENTINEL_MONGO_DBNAME'
 
         self.app.add_url_rule('/endpoint', view_func=restricted_access)
         self.app.config.update(self.settings())
@@ -55,9 +55,9 @@ class TestBase(unittest.TestCase):
             self.dbkey: 'test_auth',
             'REDIS_URL': 'redis://localhost:6379/0',
             'OAUTH2_PROVIDER_TOKEN_EXPIRES_IN': 999,
-            'OAUTH2_PROVIDER_TOKEN_URL': '/testtoken',
-            'OAUTH2_PROVIDER_MANAGEMENT_URL': '/testman',
-            'OAUTH2_PROVIDER_ROUTE_PREFIX': '/testauth'
+            'SENTINEL_TOKEN_URL': '/testtoken',
+            'SENTINEL_MANAGEMENT_URL': '/testman',
+            'SENTINEL_ROUTE_PREFIX': '/testauth'
         }
 
     def get_token(self):

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    flask-oauth2.utils
-    ~~~~~~~~~~~~~~~~~~
+    flask-sentinel.utils
+    ~~~~~~~~~~~~~~~~~~~~
 
     :copyright: (c) 2015 by Nicola Iarocci.
     :license: BSD, see LICENSE for more details.
@@ -10,7 +10,7 @@
 
 class Config(object):
     def __init__(self, app):
-        self.prefix = 'OAUTH2_PROVIDER'
+        self.prefix = 'SENTINEL'
         self.app = app
 
         app.config.setdefault(self._key('MONGO_DBNAME'), 'oauth')

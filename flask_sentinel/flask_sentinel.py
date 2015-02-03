@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    flask-oauth2
-    ~~~~~~~~~~~~
+    flask-sentinel
+    ~~~~~~~~~~~~~~
 
     :copyright: (c) 2015 by Nicola Iarocci.
     :license: BSD, see LICENSE for more details.
@@ -40,12 +40,12 @@ class ResourceOwnerPasswordCredentials(object):
                 methods=['POST', 'GET']
             )
 
-        mongo.init_app(app, config_prefix='OAUTH2_PROVIDER_MONGO')
+        mongo.init_app(app, config_prefix='SENTINEL_MONGO')
         oauth.init_app(app)
         oauth._validator = MyRequestValidator()
 
     def register_blueprint(self, app):
-            module = Blueprint('flask-oauth2', __name__,
+            module = Blueprint('flask-sentinel', __name__,
                                template_folder='templates')
             app.register_blueprint(module)
             return module
