@@ -1,7 +1,7 @@
 Flask-OAuth2
 ============
-OAuth2 Provider for the Resource Owner Password Credentials Grant scheme, as
-described in Section 1.3.3 of `RFC 6749`_.
+OAuth2 Provider currently supporting the Resource Owner Password Credentials
+Grant as described in Section 1.3.3 of `RFC 6749`_.
 
 Powered by Flask, Redis and MongoDB.
 
