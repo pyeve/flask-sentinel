@@ -3,7 +3,7 @@ Flask-Sentinel
 OAuth2 Provider currently supporting the Resource Owner Password Credentials
 Grant as described in Section 1.3.3 of `RFC 6749`_.
 
-Powered by Flask, Redis and MongoDB.
+Powered by Flask-OAuthlib, Redis and MongoDB.
 
 Deployment
 ----------
@@ -81,20 +81,21 @@ the built-in defaults:
                                         to ``/management``, so the complete 
                                         url is ``/oauth/management``. 
 
-``SENTINEL_TOKEN_EXPIRES_IN``           Default Bearer token expires time, 
-                                        default is ``3600``.
-
 ``SENTINEL_REDIS_URL``                  Url for the redis server. Defaults to 
                                         ``redis://localhost:6379/0``. 
 
-``SENTINEL_ERROR_URI``                  The error page when there is an error, 
-                                        default value is ``/oauth/errors``. 
-
-``SENTINEL_ERROR_ENDPOINT``             You can also configure the error page 
-                                        uri with an endpoint name. 
-
 ``SENTINEL_MONGO_DBNAME``               Mongo database name. Defaults to 
                                         ``oauth``. 
+
+``OAUTH2_PROVIDER_ERROR_URI``           The error page when there is an error, 
+                                        default value is ``/oauth/errors``. 
+
+``OAUTH2_PROVIDER_TOKEN_EXPIRES_IN``    Default Bearer token expires time, 
+                                        default is ``3600``.
+
+``OAUTH2_PROVIDER_ERROR_ENDPOINT``      You can also configure the error page 
+                                        uri with an endpoint name. 
+
 ======================================= ======================================
 
 Other standard PyMongo settings such as ``MONGO_HOST``, ``MONGO_PORT``,
