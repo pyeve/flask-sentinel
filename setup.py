@@ -15,7 +15,7 @@ install_requires = [
 
 setup(
     name='Flask-Sentinel',
-    version='0.0.1',
+    version='0.0.2',
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
     author='Nicola Iarocci',
