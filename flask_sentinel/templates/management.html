@@ -32,7 +32,7 @@
                     </table>
                     <h4>Add User</h4>
                     <p>Create a new authorized API user.</p>
-                    <form method="post" action="/">
+                    <form method="post" action={{ request.path }}>
                         <input type="text" name="username" placeholder="username">
                         <input type="password" name="password" placeholder="password">
                         <input type="submit" name='submit' value='Add User'>

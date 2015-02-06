@@ -1,0 +1,18 @@
+Flask-Sentinel Changelog
+========================
+
+Here you can see the full list of changes between releases.
+
+Next release
+------------
+
+- Fix: Add User button causes ``404 Not Found`` unless management page is
+  located at ``/``. Closes #1.
+
+
+Version 0.0.1
+-------------
+
+Released on 03 Feb, 2015.
+
+- First release.
