@@ -6,6 +6,15 @@ Here you can see the full list of changes between releases.
 Next release
 ------------
 
+- Fix: Add Client button causes ``404 Not Found`` unless management page is
+  located at ``/`` (Pouyan Azari.)
+
+
+Version 0.0.2
+-------------
+
+Released on 06 Feb, 2015.
+
 - Fix: Add User button causes ``404 Not Found`` unless management page is
   located at ``/``. Closes #1.
 
