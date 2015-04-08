@@ -12,6 +12,7 @@ import views
 from core import oauth, mongo, redis
 from utils import Config
 from validator import MyRequestValidator
+from redis.connection import ConnectionPool
 
 
 class ResourceOwnerPasswordCredentials(object):
@@ -22,7 +23,7 @@ class ResourceOwnerPasswordCredentials(object):
 
     def init_app(self, app):
         config = Config(app)
-        redis.from_url(config.value('REDIS_URL'))
+        redis.connection_pool=ConnectionPool.from_url(config.value('REDIS_URL'))
         self.app.config['DEBUG'] = True
         self.register_blueprint(app)
 
