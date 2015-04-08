@@ -6,6 +6,8 @@ Here you can see the full list of changes between releases.
 Next release
 ------------
 
+- Fix: Setting redis url from ConnectionPool as redis from_url method wont'
+  reset the connection itself (Xu Wang.)
 - Fix: Add Client button causes ``404 Not Found`` unless management page is
   located at ``/`` (Pouyan Azari.)
 
