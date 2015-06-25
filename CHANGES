@@ -3,8 +3,10 @@ Flask-Sentinel Changelog
 
 Here you can see the full list of changes between releases.
 
-Next release
-------------
+Version 0.0.3
+-------------
+
+Released on 25 Jun, 2015.
 
 - Fix: Turn implicit DEBUG mode off. Closes #4.
 - Fix: Setting redis url from ConnectionPool as redis from_url method wont'
