@@ -6,10 +6,11 @@ Here you can see the full list of changes between releases.
 Next release
 ------------
 
+- Fix: Turn implicit DEBUG mode off. Closes #4.
 - Fix: Setting redis url from ConnectionPool as redis from_url method wont'
-  reset the connection itself (Xu Wang.)
+  reset the connection itself (Xu Wang).
 - Fix: Add Client button causes ``404 Not Found`` unless management page is
-  located at ``/`` (Pouyan Azari.)
+  located at ``/`` (Pouyan Azari).
 
 
 Version 0.0.2
