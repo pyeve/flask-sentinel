@@ -3,6 +3,13 @@ Flask-Sentinel Changelog
 
 Here you can see the full list of changes between releases.
 
+Version 0.0.4
+-------------
+
+Released on 8 July, 2015
+
+- Fix: Circular reference prevents package from running under Python 3.
+
 Version 0.0.3
 -------------
 

@@ -8,10 +8,10 @@
 """
 from flask import Blueprint
 
-import views
-from core import oauth, mongo, redis
-from utils import Config
-from validator import MyRequestValidator
+from . import views
+from .core import oauth, mongo, redis
+from .utils import Config
+from .validator import MyRequestValidator
 from redis.connection import ConnectionPool
 
 

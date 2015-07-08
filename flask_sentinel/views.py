@@ -8,8 +8,8 @@
 """
 from flask import render_template, request
 
-from core import oauth
-from data import Storage
+from .core import oauth
+from .data import Storage
 
 
 @oauth.token_handler

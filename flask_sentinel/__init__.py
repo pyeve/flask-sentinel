@@ -1,1 +1,1 @@
-from flask_sentinel import ResourceOwnerPasswordCredentials, oauth  # noqa
+from .flask_sentinel import ResourceOwnerPasswordCredentials, oauth  # noqa

@@ -8,7 +8,7 @@
 """
 from flask_oauthlib.provider import OAuth2RequestValidator
 
-from data import Storage
+from .data import Storage
 
 
 class MyRequestValidator(OAuth2RequestValidator):

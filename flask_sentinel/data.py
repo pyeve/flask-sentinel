@@ -13,8 +13,8 @@ from datetime import datetime, timedelta
 import bcrypt
 from werkzeug.security import gen_salt
 
-from core import mongo, redis
-from models import Client, User, Token
+from .core import mongo, redis
+from .models import Client, User, Token
 
 
 # TODO use SONManipulator instead of custom de/serializers perhaps?
