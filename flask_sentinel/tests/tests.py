@@ -6,7 +6,7 @@
     :copyright: (c) 2015 by Nicola Iarocci.
     :license: BSD, see LICENSE for more details.
 """
-from base import TestBase
+from .base import TestBase
 from flask_sentinel.core import mongo, redis
 from flask_sentinel.data import Storage
 from flask_sentinel.models import Client, User

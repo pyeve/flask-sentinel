@@ -24,7 +24,7 @@ setup(
     license='BSD',
     platforms=["any"],
     packages=find_packages(),
-    test_suite="flask-sentinel.tests",
+    test_suite="flask.ext.sentinel.tests",
     install_requires=install_requires,
     tests_require=['redis'],
     classifiers=[

@@ -10,13 +10,12 @@ import simplejson as json
 import unittest
 
 from flask import Flask
-from flask_sentinel import ResourceOwnerPasswordCredentials, oauth
-from flask_sentinel.core import mongo
-from flask_sentinel.data import Storage
+from flask.ext.sentinel import ResourceOwnerPasswordCredentials, oauth
+from flask.ext.sentinel.core import mongo
+from flask.ext.sentinel.data import Storage
 
 
 class TestBase(unittest.TestCase):
-
     def setUp(self):
         self.app = Flask(__name__)
         self.dbkey = 'SENTINEL_MONGO_DBNAME'
