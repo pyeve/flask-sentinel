@@ -6,7 +6,9 @@
     :copyright: (c) 2015 by Nicola Iarocci.
     :license: BSD, see LICENSE for more details.
 """
-from .base import TestBase
+import unittest
+
+from .base import TestBase, is_redis_available
 from flask_sentinel.core import mongo, redis
 from flask_sentinel.data import Storage
 from flask_sentinel.models import Client, User
@@ -42,6 +44,7 @@ class TestTokenEndpoint(TestBase):
         r = self.test_client.post(query)
         self.assert401(r.status_code)
 
+    @unittest.skipIf(is_redis_available() is False, "redis server unavailable")
     def test_valid_token_request(self):
         son = self.get_token()
         self.assertTrue('access_token' in son)
@@ -75,6 +78,7 @@ class TestAuthEndpoint(TestBase):
         r = self.test_client.get(self.auth_endpoint, headers=headers)
         self.assert401(r.status_code)
 
+    @unittest.skipIf(is_redis_available() is False, "redis server unavailable")
     def test_valid_auth(self):
         son = self.get_token()
         token = son['access_token']

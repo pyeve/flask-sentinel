@@ -15,6 +15,18 @@ from flask.ext.sentinel.core import mongo
 from flask.ext.sentinel.data import Storage
 
 
+def is_redis_available():
+    try:
+        from redis import Redis, ConnectionError
+        try:
+            Redis().flushdb()
+        except ConnectionError:
+            return False
+    except ImportError:
+        return False
+    return True
+
+
 class TestBase(unittest.TestCase):
     def setUp(self):
         self.app = Flask(__name__)
@@ -76,6 +88,7 @@ class TestBase(unittest.TestCase):
 
     def assert200(self, status_code):
         self.assertEqual(200, status_code)
+
 
 
 @oauth.require_oauth()
