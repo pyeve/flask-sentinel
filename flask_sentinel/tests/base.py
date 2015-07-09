@@ -6,9 +6,8 @@
     :copyright: (c) 2015 by Nicola Iarocci.
     :license: BSD, see LICENSE for more details.
 """
-import simplejson as json
+import json
 import unittest
-
 from flask import Flask
 from flask.ext.sentinel import ResourceOwnerPasswordCredentials, oauth
 from flask.ext.sentinel.core import mongo
