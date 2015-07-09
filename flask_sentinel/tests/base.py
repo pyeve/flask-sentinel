@@ -90,7 +90,6 @@ class TestBase(unittest.TestCase):
         self.assertEqual(200, status_code)
 
 
-
 @oauth.require_oauth()
 def restricted_access():
     """ This is an example endpoint we are trying to protect. """
