@@ -9,9 +9,9 @@
 import unittest
 
 from .base import TestBase, is_redis_available
-from flask_sentinel.core import mongo, redis
-from flask_sentinel.data import Storage
-from flask_sentinel.models import Client, User
+from flask.ext.sentinel.core import mongo, redis
+from flask.ext.sentinel.data import Storage
+from flask.ext.sentinel.models import Client, User
 
 
 class TestTokenEndpoint(TestBase):
