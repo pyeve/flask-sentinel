@@ -24,7 +24,9 @@ other Flask extension:
 
 
     app = Flask(__name__)
-    ResourceOwnerPasswordCredentials(app)
+
+    # load settings from py module
+    app.config.from_object('settings')
 
 
     @app.route('/endpoint')
@@ -33,6 +35,7 @@ other Flask extension:
         return "You made it through and accessed the protected resource!"
 
     if __name__ == '__main__':
+        ResourceOwnerPasswordCredentials(app)
         app.run(ssl_context='adhoc')
 
 User and Client Management

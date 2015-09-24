@@ -8,6 +8,7 @@ Version 0.0.4
 
 Not released yet.
 
+- Docs: add example of loading settings from py module to README.
 - Fix: include templates with package so manually copying them is not needed
   anymore.
 - Fix: Skip redis tests if redis-server is not running or connection cannot be
