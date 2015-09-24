@@ -8,6 +8,8 @@ Version 0.0.4
 
 Not released yet.
 
+- Fix: include templates with package so manually copying them is not needed
+  anymore.
 - Fix: Skip redis tests if redis-server is not running or connection cannot be
   established to the server.
 - Fix: Circular reference prevents package from running under Python 3.

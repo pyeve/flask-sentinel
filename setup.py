@@ -13,6 +13,7 @@ install_requires = [
     'redis',
 ]
 
+
 setup(
     name='Flask-Sentinel',
     version='0.0.4',
@@ -24,6 +25,7 @@ setup(
     license='BSD',
     platforms=["any"],
     packages=find_packages(),
+    package_data={'flask_sentinel': ['templates/*']},
     test_suite="flask.ext.sentinel.tests",
     install_requires=install_requires,
     tests_require=['redis'],

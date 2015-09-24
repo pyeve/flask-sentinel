@@ -37,7 +37,7 @@ other Flask extension:
 
 User and Client Management
 --------------------------
-First Copy the "templates/management.html" to the flask root folder and you can create users and clients through the default management interface
+You can create users and clients through the default management interface
 available at ``https://localhost:5000/oauth/management``.
 
 .. image:: https://raw.githubusercontent.com/nicolaiarocci/flask-sentinel/master/static/console.png
