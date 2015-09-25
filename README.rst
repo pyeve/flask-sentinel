@@ -25,9 +25,8 @@ other Flask extension:
 
     app = Flask(__name__)
 
-    # load settings from py module
+    # optionally load settings from py module
     app.config.from_object('settings')
-
 
     @app.route('/endpoint')
     @oauth.require_oauth()
@@ -45,6 +44,12 @@ available at ``https://localhost:5000/oauth/management``.
 
 .. image:: https://raw.githubusercontent.com/nicolaiarocci/flask-sentinel/master/static/console.png
    :scale: 25 %
+
+.. note::
+   This page can and should have restricted access. In order to achieve that,
+   set `SENTINEL_MANAGEMENT_USERNAME` and `SENTINEL_MANAGEMENT_PASSWORD` in
+   your application settings. This will fire up a Basic Auth dialog when the
+   page is accessed with a browser.
 
 Testing
 -------
@@ -89,6 +94,12 @@ the built-in defaults:
 
 ``SENTINEL_MONGO_DBNAME``               Mongo database name. Defaults to 
                                         ``oauth``. 
+
+``SENTINEL_MANAGEMENT_USERNAME``        Username needed to access the 
+                                        management page.
+
+``SENTINEL_MANAGEMENT_PASSWORD``        Password needed to access the 
+                                        management page.
 
 ``OAUTH2_PROVIDER_ERROR_URI``           The error page when there is an error, 
                                         default value is ``/oauth/errors``. 

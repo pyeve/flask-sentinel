@@ -10,6 +10,7 @@ from flask import render_template, request
 
 from .core import oauth
 from .data import Storage
+from .basicauth import requires_basicauth
 
 
 @oauth.token_handler
@@ -25,6 +26,7 @@ def access_token(*args, **kwargs):
     return None
 
 
+@requires_basicauth
 def management():
     """ This endpoint is for vieweing and adding users and clients. """
     if request.method == 'POST' and request.form['submit'] == 'Add User':

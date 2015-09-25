@@ -8,6 +8,8 @@ Version 0.0.4
 
 Not released yet.
 
+- New: Management view optionally protected by Basic Auth username and
+  password.
 - Docs: add example of loading settings from py module to README.
 - Fix: include templates with package so manually copying them is not needed
   anymore.
