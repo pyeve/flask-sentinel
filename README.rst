@@ -84,13 +84,15 @@ the built-in defaults:
                                         Defaults to ``/oauth``. Prepends both
                                         token and management urls.
 
-``SENTINEL_TOKEN_URL``                  Url for token creation endpoint. 
+``SENTINEL_TOKEN_URL``                  Url for token creation endpoint. Set to
+                                        ``False`` to disable this feature.
                                         Defaults to ``/token``, so the 
                                         complete url is ``/oauth/token``. 
 
-``SENTINEL_MANAGEMENT_URL``             Url for management endpoint. Defaults 
-                                        to ``/management``, so the complete 
-                                        url is ``/oauth/management``. 
+``SENTINEL_MANAGEMENT_URL``             Url for management endpoint. Set to 
+                                        ``False`` to disable this feature. 
+                                        Defaults to ``/management``, so the
+                                        complete url is ``/oauth/management``. 
 
 ``SENTINEL_REDIS_URL``                  Url for the redis server. Defaults to 
                                         ``redis://localhost:6379/0``. 
