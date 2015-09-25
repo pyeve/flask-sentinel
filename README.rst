@@ -46,11 +46,11 @@ available at ``https://localhost:5000/oauth/management``.
    :scale: 25 %
 
 You can override the default page above with your own. Just drop your custom
-`management.html` file in a `templates` folder residing in your application
+``management.html`` file in a ``templates`` folder residing in your application
 root. 
 
 This page can and should have restricted access. In order to achieve that, set
-`SENTINEL_MANAGEMENT_USERNAME` and `SENTINEL_MANAGEMENT_PASSWORD` in your
+``SENTINEL_MANAGEMENT_USERNAME`` and ``SENTINEL_MANAGEMENT_PASSWORD`` in your
 application settings. This will fire up a Basic Auth dialog when the page is
 accessed with a browser.
 
