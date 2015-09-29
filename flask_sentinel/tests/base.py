@@ -6,17 +6,27 @@
     :copyright: (c) 2015 by Nicola Iarocci.
     :license: BSD, see LICENSE for more details.
 """
-import simplejson as json
+import json
 import unittest
-
 from flask import Flask
-from flask_sentinel import ResourceOwnerPasswordCredentials, oauth
-from flask_sentinel.core import mongo
-from flask_sentinel.data import Storage
+from flask.ext.sentinel import ResourceOwnerPasswordCredentials, oauth
+from flask.ext.sentinel.core import mongo
+from flask.ext.sentinel.data import Storage
+
+
+def is_redis_available():
+    try:
+        from redis import Redis, ConnectionError
+        try:
+            Redis().flushdb()
+        except ConnectionError:
+            return False
+    except ImportError:
+        return False
+    return True
 
 
 class TestBase(unittest.TestCase):
-
     def setUp(self):
         self.app = Flask(__name__)
         self.dbkey = 'SENTINEL_MONGO_DBNAME'

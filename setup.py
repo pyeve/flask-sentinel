@@ -13,9 +13,10 @@ install_requires = [
     'redis',
 ]
 
+
 setup(
     name='Flask-Sentinel',
-    version='0.0.2',
+    version='0.0.4',
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
     author='Nicola Iarocci',
@@ -24,7 +25,8 @@ setup(
     license='BSD',
     platforms=["any"],
     packages=find_packages(),
-    test_suite="flask-sentinel.tests",
+    package_data={'flask_sentinel': ['templates/*']},
+    test_suite="flask.ext.sentinel.tests",
     install_requires=install_requires,
     tests_require=['redis'],
     classifiers=[

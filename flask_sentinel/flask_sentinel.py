@@ -8,10 +8,11 @@
 """
 from flask import Blueprint
 
-import views
-from core import oauth, mongo, redis
-from utils import Config
-from validator import MyRequestValidator
+from . import views
+from .core import oauth, mongo, redis
+from .utils import Config
+from .validator import MyRequestValidator
+from redis.connection import ConnectionPool
 
 
 class ResourceOwnerPasswordCredentials(object):
@@ -22,8 +23,8 @@ class ResourceOwnerPasswordCredentials(object):
 
     def init_app(self, app):
         config = Config(app)
-        redis.from_url(config.value('REDIS_URL'))
-        self.app.config['DEBUG'] = True
+        redis.connection_pool = ConnectionPool.from_url(
+            config.value('REDIS_URL'))
         self.register_blueprint(app)
 
         if config.value('TOKEN_URL') is not False:
@@ -41,6 +42,7 @@ class ResourceOwnerPasswordCredentials(object):
             )
 
         mongo.init_app(app, config_prefix='SENTINEL_MONGO')
+        self.mongo = mongo
         oauth.init_app(app)
         oauth._validator = MyRequestValidator()
 

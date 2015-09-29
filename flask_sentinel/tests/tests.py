@@ -6,10 +6,12 @@
     :copyright: (c) 2015 by Nicola Iarocci.
     :license: BSD, see LICENSE for more details.
 """
-from base import TestBase
-from flask_sentinel.core import mongo, redis
-from flask_sentinel.data import Storage
-from flask_sentinel.models import Client, User
+import unittest
+
+from .base import TestBase, is_redis_available
+from ..core import mongo, redis
+from ..data import Storage
+from ..models import Client, User
 
 
 class TestTokenEndpoint(TestBase):
@@ -42,6 +44,7 @@ class TestTokenEndpoint(TestBase):
         r = self.test_client.post(query)
         self.assert401(r.status_code)
 
+    @unittest.skipIf(is_redis_available() is False, "redis server unavailable")
     def test_valid_token_request(self):
         son = self.get_token()
         self.assertTrue('access_token' in son)
@@ -75,6 +78,7 @@ class TestAuthEndpoint(TestBase):
         r = self.test_client.get(self.auth_endpoint, headers=headers)
         self.assert401(r.status_code)
 
+    @unittest.skipIf(is_redis_available() is False, "redis server unavailable")
     def test_valid_auth(self):
         son = self.get_token()
         token = son['access_token']
@@ -85,7 +89,25 @@ class TestAuthEndpoint(TestBase):
 
 class TestManagementEndpoint(TestBase):
     def test_man_endpoint(self):
+        # management endpoint is accessible with no auth
         r = self.test_client.get(self.man_endpoint)
+        self.assert200(r.status_code)
+
+        self.app.config['SENTINEL_MANAGEMENT_USERNAME'] = 'user'
+        self.app.config['SENTINEL_MANAGEMENT_PASSWORD'] = 'pw'
+
+        # inaccessible with no auth
+        r = self.test_client.get(self.man_endpoint)
+        self.assert401(r.status_code)
+
+        # inaccessible with bad auth
+        headers = [('Authorization', 'Basic %s' % 'DontThinkSo')]
+        r = self.test_client.get(self.man_endpoint, headers=headers)
+        self.assert401(r.status_code)
+
+        # green light
+        headers = [('Authorization', 'Basic %s' % 'dXNlcjpwdw==')]
+        r = self.test_client.get(self.man_endpoint, headers=headers)
         self.assert200(r.status_code)
 
 

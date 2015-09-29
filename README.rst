@@ -24,8 +24,9 @@ other Flask extension:
 
 
     app = Flask(__name__)
-    ResourceOwnerPasswordCredentials(app)
 
+    # optionally load settings from py module
+    app.config.from_object('settings')
 
     @app.route('/endpoint')
     @oauth.require_oauth()
@@ -33,6 +34,7 @@ other Flask extension:
         return "You made it through and accessed the protected resource!"
 
     if __name__ == '__main__':
+        ResourceOwnerPasswordCredentials(app)
         app.run(ssl_context='adhoc')
 
 User and Client Management
@@ -42,6 +44,15 @@ available at ``https://localhost:5000/oauth/management``.
 
 .. image:: https://raw.githubusercontent.com/nicolaiarocci/flask-sentinel/master/static/console.png
    :scale: 25 %
+
+You can override the default page above with your own. Just drop your custom
+``management.html`` file in a ``templates`` folder residing in your application
+root. 
+
+This page can and should have restricted access. In order to achieve that, set
+``SENTINEL_MANAGEMENT_USERNAME`` and ``SENTINEL_MANAGEMENT_PASSWORD`` in your
+application settings. This will fire up a Basic Auth dialog when the page is
+accessed with a browser.
 
 Testing
 -------
@@ -73,19 +84,27 @@ the built-in defaults:
                                         Defaults to ``/oauth``. Prepends both
                                         token and management urls.
 
-``SENTINEL_TOKEN_URL``                  Url for token creation endpoint. 
+``SENTINEL_TOKEN_URL``                  Url for token creation endpoint. Set to
+                                        ``False`` to disable this feature.
                                         Defaults to ``/token``, so the 
                                         complete url is ``/oauth/token``. 
 
-``SENTINEL_MANAGEMENT_URL``             Url for management endpoint. Defaults 
-                                        to ``/management``, so the complete 
-                                        url is ``/oauth/management``. 
+``SENTINEL_MANAGEMENT_URL``             Url for management endpoint. Set to 
+                                        ``False`` to disable this feature. 
+                                        Defaults to ``/management``, so the
+                                        complete url is ``/oauth/management``. 
 
 ``SENTINEL_REDIS_URL``                  Url for the redis server. Defaults to 
                                         ``redis://localhost:6379/0``. 
 
 ``SENTINEL_MONGO_DBNAME``               Mongo database name. Defaults to 
                                         ``oauth``. 
+
+``SENTINEL_MANAGEMENT_USERNAME``        Username needed to access the 
+                                        management page.
+
+``SENTINEL_MANAGEMENT_PASSWORD``        Password needed to access the 
+                                        management page.
 
 ``OAUTH2_PROVIDER_ERROR_URI``           The error page when there is an error, 
                                         default value is ``/oauth/errors``. 
