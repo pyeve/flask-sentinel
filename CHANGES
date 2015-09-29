@@ -6,7 +6,7 @@ Here you can see the full list of changes between releases.
 Version 0.0.4
 -------------
 
-Not released yet.
+Released on 29 September, 2015.
 
 - New: you can override the default with a custom management page.
 - New: Management view optionally protected by Basic Auth username and
