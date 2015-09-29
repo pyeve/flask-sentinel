@@ -3,8 +3,37 @@ Flask-Sentinel Changelog
 
 Here you can see the full list of changes between releases.
 
-Next release
-------------
+Version 0.0.4
+-------------
+
+Released on 29 September, 2015.
+
+- New: you can override the default with a custom management page.
+- New: Management view optionally protected by Basic Auth username and
+  password.
+- Docs: add example of loading settings from py module to README.
+- Fix: include templates with package so manually copying them is not needed
+  anymore.
+- Fix: Skip redis tests if redis-server is not running or connection cannot be
+  established to the server.
+- Fix: Circular reference prevents package from running under Python 3.
+
+Version 0.0.3
+-------------
+
+Released on 25 Jun, 2015.
+
+- Fix: Turn implicit DEBUG mode off. Closes #4.
+- Fix: Setting redis url from ConnectionPool as redis from_url method wont'
+  reset the connection itself (Xu Wang).
+- Fix: Add Client button causes ``404 Not Found`` unless management page is
+  located at ``/`` (Pouyan Azari).
+
+
+Version 0.0.2
+-------------
+
+Released on 06 Feb, 2015.
 
 - Fix: Add User button causes ``404 Not Found`` unless management page is
   located at ``/``. Closes #1.
