@@ -8,7 +8,7 @@ Version 0.0.5
 
 Not released yet
 
-- Move along, nothing to see here.
+- new: token now returns the expires_in field.
 
 Version 0.0.4
 -------------

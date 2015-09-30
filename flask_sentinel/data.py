@@ -142,7 +142,7 @@ class Storage(object):
         # Make sure there is only one grant token for every (client, user)
         mongo.db.tokens.remove({'client_id': client_id, 'user_id': user_id})
 
-        expires_in = token.pop('expires_in')
+        expires_in = token.get('expires_in')
         expires = datetime.utcnow() + timedelta(seconds=expires_in)
 
         token = Token(
