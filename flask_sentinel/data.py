@@ -105,7 +105,7 @@ class Storage(object):
         user = mongo.db.users.find_one({'username': username})
         if user and password:
             encoded_pw = password.encode('utf-8')
-            user_hash = user['hashpw'].encode('utf-8')
+            user_hash = user['hashpw']
             user = mongo.db.users.find_one({
                 'username': username,
                 'hashpw': bcrypt.hashpw(encoded_pw, user_hash)
