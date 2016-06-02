@@ -6,7 +6,7 @@ with open('README.rst') as f:
     LONG_DESCRIPTION = f.read()
 
 install_requires = [
-    'Flask-OAuthlib==0.9.1',
+    'Flask-OAuthlib==0.9.3',
     'Flask-PyMongo',
     'bcrypt',
     'pyOpenSSL',

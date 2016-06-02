@@ -1,4 +1,4 @@
-Flask-OAuthlib==0.9.1
+Flask-OAuthlib==0.9.3
 Flask-PyMongo
 bcrypt
 pyOpenSSL
