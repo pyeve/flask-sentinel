@@ -80,7 +80,7 @@ Configuration works like any other `Flask configuration`_. Here are
 the built-in defaults:
 
 ======================================= ======================================
-``SENTINEL_PROVIDER_ROUTE_PREFIX``      Default prefix for OAuth endpoints. 
+``SENTINEL_ROUTE_PREFIX``               Default prefix for OAuth endpoints.
                                         Defaults to ``/oauth``. Prepends both
                                         token and management urls.
 
