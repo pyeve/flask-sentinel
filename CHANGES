@@ -8,6 +8,7 @@ Version 0.0.6
 
 Not released yet.
 
+- fix: validator crash on Python 3 (Vincent Agnano)
 - docs: SENTINEL_PROVIDER_ROUTE_PREFIX should actually be SENTINEL_ROUTE_PREFIX
   (Namgyal Brisson).
 
