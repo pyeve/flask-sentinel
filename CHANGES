@@ -3,11 +3,21 @@ Flask-Sentinel Changelog
 
 Here you can see the full list of changes between releases.
 
+Version 0.0.6
+-------------
+
+Not released yet.
+
+- docs: SENTINEL_PROVIDER_ROUTE_PREFIX should actually be SENTINEL_ROUTE_PREFIX
+  (Namgyal Brisson).
+
 Version 0.0.5
 -------------
 
 Released on 1 June, 2016.
 
+- docs: SENTINEL_PROVIDER_ROUTE_PREFIX should actually be SENTINEL_ROUTE_PREFIX
+  (Namgyal Brisson).
 - fix: pin Flask-OAutlib to v0.9.3 to prevent a regression with 0.9.2. Closes
   #5. Closes #9.
 - new: token now returns the expires_in field.
