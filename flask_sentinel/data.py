@@ -105,7 +105,9 @@ class Storage(object):
         user = mongo.db.users.find_one({'username': username})
         if user and password:
             encoded_pw = password.encode('utf-8')
-            user_hash = user['hashpw'].encode('utf-8')
+            user_hash = (user['hashpw'].encode('utf-8')
+                         if hasattr(user['hashpw'], 'encode')
+                         else user['hashpw'])
             user = mongo.db.users.find_one({
                 'username': username,
                 'hashpw': bcrypt.hashpw(encoded_pw, user_hash)
@@ -142,7 +144,7 @@ class Storage(object):
         # Make sure there is only one grant token for every (client, user)
         mongo.db.tokens.remove({'client_id': client_id, 'user_id': user_id})
 
-        expires_in = token.pop('expires_in')
+        expires_in = token.get('expires_in')
         expires = datetime.utcnow() + timedelta(seconds=expires_in)
 
         token = Token(

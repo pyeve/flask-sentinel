@@ -49,6 +49,7 @@ class TestTokenEndpoint(TestBase):
         son = self.get_token()
         self.assertTrue('access_token' in son)
         self.assertTrue('token_type' in son)
+        self.assertTrue('expires_in' in son)
         self.assertTrue('refresh_token' in son)
         self.assertTrue('scope' in son)
         self.assertEqual('Bearer', son['token_type'])
