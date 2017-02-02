@@ -6,7 +6,7 @@ Here you can see the full list of changes between releases.
 Version 0.0.6
 -------------
 
-Not released yet.
+Released on 2 February, 2017.
 
 - fix: validator crash on Python 3 (Vincent Agnano)
 - docs: SENTINEL_PROVIDER_ROUTE_PREFIX should actually be SENTINEL_ROUTE_PREFIX
