@@ -21,7 +21,7 @@ setup(
     long_description=LONG_DESCRIPTION,
     author='Nicola Iarocci',
     author_email='nicola@nicolaiarocci.com',
-    url='https://github.com/nicolaiarocci/flask-sentinel',
+    url='https://github.com/pyeve/flask-sentinel',
     license='BSD',
     platforms=["any"],
     packages=find_packages(),
