@@ -42,7 +42,7 @@ User and Client Management
 You can create users and clients through the default management interface
 available at ``https://localhost:5000/oauth/management``.
 
-.. image:: https://raw.githubusercontent.com/nicolaiarocci/flask-sentinel/master/static/console.png
+.. image:: https://raw.githubusercontent.com/pyeve/flask-sentinel/master/static/console.png
    :scale: 25 %
 
 You can override the default page above with your own. Just drop your custom
@@ -166,7 +166,7 @@ Brunsgaard`_.
 .. _`Jonas Brunsgaard`: https://github.com/brunsgaard
 .. _`Nicola Iarocci`: http://nicolaiarocci.com
 .. _`Gestionali Amica`: http://gestionaleamica.com
-.. _`BSD license`: https://github.com/nicolaiarocci/flask-sentinel/blob/master/LICENSE
-.. _`Eve-OAuth2`: https://github.com/nicolaiarocci/eve-oauth2
+.. _`BSD license`: https://github.com/pyeve/flask-sentinel/blob/master/LICENSE
+.. _`Eve-OAuth2`: https://github.com/pyeve/eve-oauth2
 .. _`Eve`: http://python-eve.org
 .. _`Flask configuration`: http://flask.pocoo.org/docs/0.10/config/
