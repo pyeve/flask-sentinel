@@ -6,7 +6,7 @@
     :copyright: (c) 2015 by Nicola Iarocci.
     :license: BSD, see LICENSE for more details.
 """
-from flask.ext.pymongo import PyMongo
+from flask_pymongo import PyMongo
 from flask_oauthlib.provider import OAuth2Provider
 from redis import StrictRedis
 
