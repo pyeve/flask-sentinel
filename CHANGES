@@ -3,6 +3,13 @@ Flask-Sentinel Changelog
 
 Here you can see the full list of changes between releases.
 
+Version 0.0.7
+-------------
+
+Not released yet.
+
+- Fix: ExtDeprecationWarning when importing flask.ext.pymongo (Allan).
+
 Version 0.0.6
 -------------
 
