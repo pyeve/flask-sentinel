@@ -103,7 +103,7 @@ class Client(BaseModel):
 
         Presently, only the password grant type is allowed.
         """
-        return ['password']
+        return ['password', 'refresh_token']
 
     @property
     def default_scopes(self):
