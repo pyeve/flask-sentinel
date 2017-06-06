@@ -47,7 +47,7 @@ available at ``https://localhost:5000/oauth/management``.
 
 You can override the default page above with your own. Just drop your custom
 ``management.html`` file in a ``templates`` folder residing in your application
-root. 
+root.
 
 This page can and should have restricted access. In order to achieve that, set
 ``SENTINEL_MANAGEMENT_USERNAME`` and ``SENTINEL_MANAGEMENT_PASSWORD`` in your
@@ -66,6 +66,14 @@ Generating a Bearer Token
     $ curl -k -X POST -d "client_id=9qFbZD4udTzFVYo0u5UzkZX9iuzbdcJDRAquTfRk&grant_type=password&username=jonas&password=pass" https://localhost:5000/oauth/token
     {"access_token": "NYODXSR8KalTPnWUib47t5E8Pi8mo4", "token_type": "Bearer", "refresh_token": "s6L6OPL2bnKSRSbgQM3g0wbFkJB4ML", "scope": ""}
 
+Generating a Bearer Token Using a Retrieved Refresh Token
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: console
+
+    $ curl -X POST -d "client_id=9qFbZD4udTzFVYo0u5UzkZX9iuzbdcJDRAquTfRk&grant_type=refresh_token&refresh_token=s6L6OPL2bnKSRSbgQM3g0wbFkJB4ML" https://localhost:5000/oauth/token
+    {"access_token": "RmPAfqfsDoMCbQ2DUUehwcw1hMCMJj", "token_type": "Bearer", "expires_in": 3600, "refresh_token": "s6L6OPL2bnKSRSbgQM3g0wbFkJB4ML", "scope": ""}
+
 Accessing a Protected Resource Using Retrieved Bearer Token
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -73,6 +81,7 @@ Accessing a Protected Resource Using Retrieved Bearer Token
 
     $ curl -k -H "Authorization: Bearer NYODXSR8KalTPnWUib47t5E8Pi8mo4" https://localhost:5000/endpoint
     You made it through and accessed the protected resource!
+
 
 Configuration
 -------------
@@ -86,34 +95,34 @@ the built-in defaults:
 
 ``SENTINEL_TOKEN_URL``                  Url for token creation endpoint. Set to
                                         ``False`` to disable this feature.
-                                        Defaults to ``/token``, so the 
-                                        complete url is ``/oauth/token``. 
+                                        Defaults to ``/token``, so the
+                                        complete url is ``/oauth/token``.
 
-``SENTINEL_MANAGEMENT_URL``             Url for management endpoint. Set to 
-                                        ``False`` to disable this feature. 
+``SENTINEL_MANAGEMENT_URL``             Url for management endpoint. Set to
+                                        ``False`` to disable this feature.
                                         Defaults to ``/management``, so the
-                                        complete url is ``/oauth/management``. 
+                                        complete url is ``/oauth/management``.
 
-``SENTINEL_REDIS_URL``                  Url for the redis server. Defaults to 
-                                        ``redis://localhost:6379/0``. 
+``SENTINEL_REDIS_URL``                  Url for the redis server. Defaults to
+                                        ``redis://localhost:6379/0``.
 
-``SENTINEL_MONGO_DBNAME``               Mongo database name. Defaults to 
-                                        ``oauth``. 
+``SENTINEL_MONGO_DBNAME``               Mongo database name. Defaults to
+                                        ``oauth``.
 
-``SENTINEL_MANAGEMENT_USERNAME``        Username needed to access the 
+``SENTINEL_MANAGEMENT_USERNAME``        Username needed to access the
                                         management page.
 
-``SENTINEL_MANAGEMENT_PASSWORD``        Password needed to access the 
+``SENTINEL_MANAGEMENT_PASSWORD``        Password needed to access the
                                         management page.
 
-``OAUTH2_PROVIDER_ERROR_URI``           The error page when there is an error, 
-                                        default value is ``/oauth/errors``. 
+``OAUTH2_PROVIDER_ERROR_URI``           The error page when there is an error,
+                                        default value is ``/oauth/errors``.
 
-``OAUTH2_PROVIDER_TOKEN_EXPIRES_IN``    Default Bearer token expires time, 
+``OAUTH2_PROVIDER_TOKEN_EXPIRES_IN``    Default Bearer token expires time,
                                         default is ``3600``.
 
-``OAUTH2_PROVIDER_ERROR_ENDPOINT``      You can also configure the error page 
-                                        uri with an endpoint name. 
+``OAUTH2_PROVIDER_ERROR_ENDPOINT``      You can also configure the error page
+                                        uri with an endpoint name.
 
 ======================================= ======================================
 
@@ -148,7 +157,7 @@ development server running under SSL/TLS.*
 Password Hashing
 ~~~~~~~~~~~~~~~~
 Bcrypt and a randomly generated salt are used to hash each user password before
-it is added to the database. You should never store passwords in plain text! 
+it is added to the database. You should never store passwords in plain text!
 
 License
 -------
