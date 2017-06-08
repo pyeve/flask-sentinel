@@ -8,6 +8,8 @@ Version 0.0.7
 
 Not released yet.
 
+- New: Generate a Bearer Token from a refresh token. Closes #20 (Allan
+  Swanepoel).
 - Fix: ExtDeprecationWarning when importing flask.ext.pymongo (Allan).
 
 Version 0.0.6
