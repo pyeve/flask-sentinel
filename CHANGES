@@ -6,7 +6,7 @@ Here you can see the full list of changes between releases.
 Version 0.0.7
 -------------
 
-Not released yet.
+Released on 8 June, 2017.
 
 - New: Generate a Bearer Token from a refresh token. Closes #20 (Allan
   Swanepoel).
