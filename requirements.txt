@@ -2,4 +2,4 @@ Flask-OAuthlib==0.9.3
 Flask-PyMongo
 bcrypt
 pyOpenSSL
-redis
+redis<=2.10.6
