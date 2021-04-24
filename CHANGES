@@ -6,6 +6,8 @@ Here you can see the full list of changes between releases.
 Development
 ----------
 
+- Bump pygments from .0.1 to 2.7.4
+- Bump py from 1.4.26 to 1.10.0
 - Fix: 500 error when using Redis' most recent versions. Closes #37.
 
 Version 0.0.7
