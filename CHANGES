@@ -6,6 +6,13 @@ Here you can see the full list of changes between releases.
 Development
 ----------
 
+- hic sunt leones
+
+Version 0.0.8
+-------------
+
+Released on 24 April, 2021.
+
 - Bump pygments from .0.1 to 2.7.4 (dev-requirements)
 - Bump py from 1.4.26 to 1.10.0 (dev-requirements)
 - Fix: 500 error when using Redis' most recent versions. Closes #37.
