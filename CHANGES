@@ -3,6 +3,11 @@ Flask-Sentinel Changelog
 
 Here you can see the full list of changes between releases.
 
+Development
+----------
+
+- Fix: 500 error when using Redis' most recent versions. Closes #37.
+
 Version 0.0.7
 -------------
 
