@@ -10,7 +10,7 @@ install_requires = [
     'Flask-PyMongo',
     'bcrypt',
     'pyOpenSSL',
-    'redis',
+    'redis<=2.10.6',
 ]
 
 
